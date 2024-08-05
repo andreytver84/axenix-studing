@@ -1,23 +1,14 @@
-interface Iuser {
-  id: number;
-  name: string;
-  age: number;
-}
+import { IUser } from "../App";
 
-type usersData = Iuser[];
+type List<T> = {
+  items: T[];
+};
 
-const data: usersData = [
-  { id: 1, name: "Ivan", age: 42 },
-  { id: 2, name: "Sasha", age: 22 },
-  { id: 3, name: "Petr", age: 35 },
-  { id: 4, name: "Olga", age: 31 },
-];
-
-const ItemList = () => {
+const ItemList = <T extends IUser>({ items }: List<T>) => {
   return (
     <div>
       <ul>
-        {data.map((user) => (
+        {items.map((user) => (
           <li key={user.id}>{user.name}</li>
         ))}
       </ul>
