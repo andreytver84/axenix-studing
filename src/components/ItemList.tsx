@@ -1,15 +1,15 @@
-import { IUser } from "../App";
+import { IItem } from "../App";
 
 type List<T> = {
   items: T[];
 };
 
-const ItemList = <T extends IUser>({ items }: List<T>) => {
+const ItemList = <U extends IItem>({ items }: List<U>) => {
   return (
     <div>
       <ul>
-        {items.map((user) => (
-          <li key={user.id}>{user.name}</li>
+        {items.map((data) => (
+          <li key={data.id}>{data.name}</li>
         ))}
       </ul>
     </div>
